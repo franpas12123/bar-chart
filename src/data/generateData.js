@@ -51,7 +51,7 @@ function randomDOB(min, max) {
 const json = [];
 
 // Create data
-const numberOfData = 300000;
+const numberOfData = 100000;
 
 const specialists = createSpecialists(20);
 
@@ -67,16 +67,24 @@ for (let index = 0; index < numberOfData; index++) {
     ]
   */
   // create a JSON object
-  const user = {
-    id: index,
-    name: createRandomName(),
-    companyName: createCompanyName(),
-    specialist: specialists[randomNum(0, specialists.length)],
-    // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
-    createdAt: randomDOB(2022, 2022),
+  // const user = {
+  //   id: index,
+  //   name: createRandomName(),
+  //   // companyName: createCompanyName(),
+  //   specialist: specialists[randomNum(0, specialists.length)],
+  //   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
+  //   createdAt: randomDOB(2022, 2022),
+  // };
+
+  const technicalAssistanceChart = {
+    businessPlan: randomNum(1000, 100000),
+    marketingPlan: randomNum(1000, 100000),
+    proFormaFinancials: randomNum(1000, 100000),
+    preUnderwriting: randomNum(1000, 100000),
   };
 
-  json.push(user);
+  // json.push(user);
+  json.push(technicalAssistanceChart);
 }
 
 // convert JSON object to string
@@ -84,7 +92,7 @@ for (let index = 0; index < numberOfData; index++) {
 const data = JSON.stringify(json);
 
 // write JSON string to a file
-const destinationFile = '../../public/contacts.json';
+const destinationFile = '../../public/technicalAssistanceChartData.json';
 // const destinationFile = 'contacts.json'
 fs.writeFile(destinationFile, data, (err) => {
   if (err) {
