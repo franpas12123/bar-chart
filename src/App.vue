@@ -1,44 +1,22 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="@/assets/site_logo.png"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <strong>Black Business Alliance</strong>
       </div>
 
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
-
-    <v-main>
-      <Chart/>
+    <v-main class="app">
+      <Chart />
     </v-main>
   </v-app>
 </template>
@@ -54,7 +32,27 @@ export default {
   },
 
   data: () => ({
-    //
+    items: [
+      { title: 'Reports', icon: 'mdi-view-dashboard' },
+      { title: 'Business Directory', icon: 'mdi-image' },
+      { title: 'Contacts', icon: 'mdi-help-box' },
+    ],
+    right: null,
   }),
 };
 </script>
+
+<style>
+.app {
+  background-color: #ebebeb;
+}
+.drawer {
+  color: white;
+  background-color: #363636;
+}
+.site-logo {
+  height: 35px;
+  width: auto;
+  margin-right: 4px;
+}
+</style>
