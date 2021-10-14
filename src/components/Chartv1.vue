@@ -1,9 +1,10 @@
 <template>
   <v-container fluid>
     <v-row justify="center">
-      <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
+      <v-col class="mt-6" md="10" sm="12" cols="12" align="center" justify="center">
         <v-data-table
           :headers="headers"
+          :items="items"
           :items-per-page="10"
           class="elevation-1"
         ></v-data-table>
@@ -32,17 +33,17 @@ export default {
   async created() {
     const baseURL = process.env.VUE_APP_NETLIFY_URL;
     const res = await axios.get(`${baseURL}/technicalAssistanceChartData.json`);
-    this.items = res.data[0];
-    this.categories.forEach(() => {
-      const count = this.getRndInteger(30, 100);
+    this.items = res.data;
+    this.items.forEach((item) => {
+      // const count = this.getRndInteger(30, 100);
       // const item = {
       //   serviceType: category,
       //   count,
       // };
-      this.series[0].data.push(count);
+      this.series[0].data.push(item.value);
+      this.options.xaxis.categories.push(item.name);
       // this.items.push(item);
     });
-    this.options.xaxis.categories = this.categories;
   },
   data() {
     return {
@@ -54,8 +55,8 @@ export default {
       ],
       items: [],
       headers: [
-        { text: 'Service', value: 'serviceType' },
-        { text: 'Count', value: 'count' },
+        { text: 'Service', value: 'name' },
+        { text: 'Count', value: 'value' },
       ],
       options: {
         chart: {
@@ -63,7 +64,7 @@ export default {
           height: '500px',
         },
         title: {
-          text: 'Report',
+          text: '',
           align: 'left',
           // floating: true,
           style: {
