@@ -1,24 +1,25 @@
 <template>
   <v-container>
-    <h3>Monthly Report v2</h3>
     <v-row justify="center">
-      <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
+      <!-- <v-col class="mt-12" md="12" sm="12" cols="12" align="center" justify="center">
         <v-data-table
           :headers="headers"
           :items="items"
           :items-per-page="10"
           class="elevation-1"
         ></v-data-table>
-      </v-col>
+      </v-col> -->
 
-      <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
+      <v-col class="" md="6" sm="12" cols="12" align="" justify="center">
+        <h3 class="mb-3">Business plan</h3>
         <apexchart
           :height="options.chart.height"
           :options="options"
           :series="series"
         ></apexchart>
       </v-col>
-      <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
+      <v-col class="" md="6" sm="12" cols="12" align="" justify="center">
+        <h3 class="mb-3">Marketing plan</h3>
         <apexchart
           type="bar"
           :height="options.chart.height"
@@ -30,7 +31,8 @@
       <!-- </v-row> -->
       <!-- <v-row> -->
 
-      <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
+      <v-col class="mt-6" md="6" sm="12" cols="12" align="" justify="center">
+        <h3 class="mb-3">Pro-forma financials</h3>
         <apexchart
           type="bar"
           :height="options.chart.height"
@@ -39,7 +41,8 @@
         ></apexchart>
       </v-col>
 
-      <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
+      <v-col class="mt-6" md="6" sm="12" cols="12" align="" justify="center">
+        <h3 class="mb-3">Pre-underwriting</h3>
         <apexchart
           type="bar"
           :height="options.chart.height"
@@ -68,12 +71,13 @@ export default {
   },
   data() {
     return {
-      categories: [
-        'Business plan',
-        'Marketing plan',
-        'Pro-forma financials',
-        'Pre-underwriting',
-      ],
+      categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+      // categories: [
+      //   'Business plan',
+      //   'Marketing plan',
+      //   'Pro-forma financials',
+      //   'Pre-underwriting',
+      // ],
       options: {
         title: {
           text: '',
@@ -84,37 +88,6 @@ export default {
           id: 'vuechart-example',
           height: '500px',
           type: 'bar',
-          toolbar: {
-            show: true,
-            offsetX: 0,
-            offsetY: 0,
-            // tools: {
-            //   download: true,
-            //   selection: true,
-            //   zoom: true,
-            //   zoomin: true,
-            //   zoomout: true,
-            //   pan: true,
-            //   reset: true | '<img src="/static/icons/reset.png" width="20">',
-            //   customIcons: [],
-            // },
-            zoom: {
-              enabled: true,
-              type: 'xy',
-              autoScaleYaxis: true,
-              // zoomedArea: {
-              //   fill: {
-              //     color: '#90CAF9',
-              //     opacity: 0.4,
-              //   },
-              //   stroke: {
-              //     color: '#0D47A1',
-              //     opacity: 0.4,
-              //     width: 1,
-              //   },
-              // },
-            },
-          },
         },
         xaxis: {
           categories: [],
