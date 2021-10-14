@@ -56,7 +56,7 @@ const numberOfData = 100000;
 const specialists = createSpecialists(20);
 
 // for (let index = 0; index < numberOfData; index++) {
-  /*
+/*
     [
       {
         "id": 0,
@@ -66,27 +66,23 @@ const specialists = createSpecialists(20);
       }
     ]
   */
-  // create a JSON object
-  // const user = {
-  //   id: index,
-  //   name: createRandomName(),
-  //   // companyName: createCompanyName(),
-  //   specialist: specialists[randomNum(0, specialists.length)],
-  //   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
-  //   createdAt: randomDOB(2022, 2022),
-  // };
+// create a JSON object
+// const user = {
+//   id: index,
+//   name: createRandomName(),
+//   // companyName: createCompanyName(),
+//   specialist: specialists[randomNum(0, specialists.length)],
+//   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
+//   createdAt: randomDOB(2022, 2022),
+// };
 
-  // json.push(user);
+// json.push(user);
 // }
 
-const technicalAssistanceChart = {
-  businessPlan: randomNum(1000, 100000),
-  marketingPlan: randomNum(1000, 100000),
-  proFormaFinancials: randomNum(1000, 100000),
-  preUnderwriting: randomNum(1000, 100000),
-};
-
-json.push(technicalAssistanceChart);
+json.push({ businessPlan: randomNum(1000, 100000) });
+json.push({ marketingPlan: randomNum(1000, 100000) });
+json.push({ proFormaFinancials: randomNum(1000, 100000) });
+json.push({ preUnderwriting: randomNum(1000, 100000) });
 
 // convert JSON object to string
 // const data = JSON.stringify(json, null, 4); // pretty version
