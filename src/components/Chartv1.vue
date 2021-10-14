@@ -32,7 +32,13 @@ export default {
   },
   async created() {
     const baseURL = process.env.VUE_APP_NETLIFY_URL;
-    const res = await axios.get(`${baseURL}/technicalAssistanceChartData.json`);
+    const randomNum = Math.floor(Math.random() * (2 - 0) + 0);
+    let res;
+    if (!randomNum) {
+      res = await axios.get(`${baseURL}/technicalAssistanceChartData.json`);
+    } else {
+      res = await axios.get(`${baseURL}/technicalAssistanceChartData${randomNum}.json`);
+    }
     this.items = res.data;
     this.items.forEach((item) => {
       // const count = this.getRndInteger(30, 100);
