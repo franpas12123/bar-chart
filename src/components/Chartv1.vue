@@ -29,18 +29,18 @@ export default {
   props: {
     msg: String,
   },
-  created() {
-    const baseURL = process.ENV.VUE_APP_NETLIFY_URL;
-    // axios.get()
-    console.log(baseURL);
-    this.categories.forEach((category) => {
+  async created() {
+    const baseURL = process.env.VUE_APP_NETLIFY_URL;
+    const res = await axios.get(`${baseURL}/technicalAssistanceChartData.json`);
+    this.items = res.data[0];
+    this.categories.forEach(() => {
       const count = this.getRndInteger(30, 100);
-      const item = {
-        serviceType: category,
-        count,
-      };
+      // const item = {
+      //   serviceType: category,
+      //   count,
+      // };
       this.series[0].data.push(count);
-      this.items.push(item);
+      // this.items.push(item);
     });
     this.options.xaxis.categories = this.categories;
   },
