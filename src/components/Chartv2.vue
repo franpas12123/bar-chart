@@ -1,6 +1,16 @@
 <template>
   <v-container>
+    <h3>Monthly Report v2</h3>
     <v-row justify="center">
+      <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
+        <v-data-table
+          :headers="headers"
+          :items="items"
+          :items-per-page="10"
+          class="elevation-1"
+        ></v-data-table>
+      </v-col>
+
       <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
         <apexchart
           :height="options.chart.height"
