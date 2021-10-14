@@ -79,10 +79,10 @@ const specialists = createSpecialists(20);
 // json.push(user);
 // }
 
-json.push({ name: 'Business Plan', value: randomNum(1000, 100000) });
-json.push({ name: 'Marketing Plan', value: randomNum(1000, 100000) });
-json.push({ name: 'Pro-forma Financials', value: randomNum(1000, 100000) });
-json.push({ name: 'Pre-underwriting', value: randomNum(1000, 100000) });
+json.push({ name: 'Business Plan', value: randomNum(10000, 100000) });
+json.push({ name: 'Marketing Plan', value: randomNum(10000, 100000) });
+json.push({ name: 'Pro-forma Financials', value: randomNum(10000, 100000) });
+json.push({ name: 'Pre-underwriting', value: randomNum(10000, 100000) });
 
 // convert JSON object to string
 // const data = JSON.stringify(json, null, 4); // pretty version
