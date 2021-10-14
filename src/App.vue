@@ -27,7 +27,6 @@
       <v-container fill-height fluid>
         <v-row justify="center">
           <v-col cols="12" md="10">
-            <Table class="mt-12"></Table>
             <router-view></router-view>
           </v-col>
         </v-row>
@@ -38,9 +37,6 @@
 <script>
 export default {
   name: 'App',
-  components: {
-    Table: () => import('@/components/Table.vue'),
-  },
   data: () => ({
     items: [
       { title: 'Reports', icon: 'mdi-view-dashboard' },
