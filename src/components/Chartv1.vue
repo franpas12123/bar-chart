@@ -2,6 +2,14 @@
   <v-container fluid>
     <v-row justify="center">
       <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
+        <v-data-table
+          :headers="headers"
+          :items-per-page="10"
+          class="elevation-1"
+        ></v-data-table>
+      </v-col>
+
+      <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
         <apexchart
           type="bar"
           :height="options.chart.height"
@@ -20,7 +28,15 @@ export default {
     msg: String,
   },
   created() {
-    this.categories.forEach(() => this.series[0].data.push(this.getRndInteger(30, 100)));
+    this.categories.forEach((category) => {
+      const count = this.getRndInteger(30, 100)
+      const item = {
+        serviceType: category,
+        count
+      }
+      this.series[0].data.push(count);
+      this.items.push(item);
+    })
     this.options.xaxis.categories = this.categories;
   },
   data() {
@@ -30,6 +46,11 @@ export default {
         'Marketing plan',
         'Pro-forma financials',
         'Pre-underwriting',
+      ],
+      items: [],
+      headers: [
+        { text: 'Service', value: 'serviceType' },
+        { text: 'Count', value: 'count' },
       ],
       options: {
         chart: {
