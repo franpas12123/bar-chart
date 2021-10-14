@@ -89,7 +89,7 @@ json.push({ name: 'Pre-underwriting', value: randomNum(30000, 100000) });
 const data = JSON.stringify(json);
 
 // write JSON string to a file
-const destinationFile = '../../public/technicalAssistanceChartData.json';
+const destinationFile = '../../public/technicalAssistanceChartData1.json';
 // const destinationFile = 'contacts.json'
 fs.writeFile(destinationFile, data, (err) => {
   if (err) {
