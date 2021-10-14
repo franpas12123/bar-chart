@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-row class="">
-      <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
+  <v-container fluid>
+    <v-row justify="center">
+      <v-col class="mt-12" md="10" sm="12" cols="12" align="center" justify="center">
         <apexchart
           type="bar"
           :height="options.chart.height"
@@ -36,36 +36,41 @@ export default {
           id: 'vuechart-example',
           height: '500px',
         },
+        title: {
+          text: 'Report',
+          align: 'left',
+          // floating: true,
+          style: {
+            fontSize: '24px',
+            fontWeight: 'bold',
+            fontFamily: 'Roboto',
+            color: 'black',
+          },
+          margin: 30,
+        },
+        // theme: {
+        //   mode: 'dark',
+        //   palette: 'palette1',
+        // },
+        dataLabels: {
+          enabled: false,
+        },
         xaxis: {
           categories: [],
         },
         plotOptions: {
           bar: {
-            barHeight: '100%',
+            barHeight: '80%',
             distributed: true,
-            dataLabels: {
-              position: 'bottom',
-              enabled: false,
-            },
+            borderRadius: 5,
           },
         },
-        // legend: {
-        //   position: 'right',
-        //   width: 200,
-        //   horizontalAlign: 'right',
-        // },
-        colors: [
-          '#33b2df', // blue
-          '#546E7A',
-          '#A5978B',
-          '#f48024',
-          '#2b908f',
-          '#d4526e',
-          '#13d8aa',
-          '#f9a3a4',
-          '#90ee7e',
-          '#69d2e7',
-        ],
+        legend: {
+          position: 'right',
+          width: 150,
+          horizontalAlign: 'right',
+          fontFamily: 'Roboto',
+        },
         responsive: [
           {
             breakpoint: 800,
@@ -85,6 +90,19 @@ export default {
           data: [],
         },
       ],
+      tooltip: {
+        theme: 'dark',
+        x: {
+          show: false,
+        },
+        y: {
+          title: {
+            formatter: function() {
+              return '';
+            },
+          },
+        },
+      },
     };
   },
 };

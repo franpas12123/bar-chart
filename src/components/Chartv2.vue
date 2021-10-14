@@ -1,9 +1,8 @@
 <template>
   <v-container>
-    <v-row class="">
+    <v-row justify="center">
       <v-col class="mt-12" md="6" sm="12" cols="12" align="center" justify="center">
         <apexchart
-          type="bar"
           :height="options.chart.height"
           :options="options"
           :series="series"
@@ -49,12 +48,12 @@ export default {
     msg: String,
   },
   created() {
-    // this.categories.forEach(() => {
-    this.series[0].data.push(this.getRndInteger(30, 100));
-    this.series1[0].data.push(this.getRndInteger(30, 100));
-    this.series2[0].data.push(this.getRndInteger(30, 100));
-    this.series3[0].data.push(this.getRndInteger(30, 100));
-    // }
+    this.categories.forEach(() => {
+      this.series[0].data.push(this.getRndInteger(0, 100));
+      this.series1[0].data.push(this.getRndInteger(0, 100));
+      this.series2[0].data.push(this.getRndInteger(0, 100));
+      this.series3[0].data.push(this.getRndInteger(0, 100));
+    });
     this.options.xaxis.categories = this.categories;
   },
   data() {
@@ -66,22 +65,60 @@ export default {
         'Pre-underwriting',
       ],
       options: {
+        title: {
+          text: '',
+          align: 'left',
+          // floating: true,
+        },
         chart: {
           id: 'vuechart-example',
           height: '500px',
+          type: 'bar',
+          toolbar: {
+            show: true,
+            offsetX: 0,
+            offsetY: 0,
+            // tools: {
+            //   download: true,
+            //   selection: true,
+            //   zoom: true,
+            //   zoomin: true,
+            //   zoomout: true,
+            //   pan: true,
+            //   reset: true | '<img src="/static/icons/reset.png" width="20">',
+            //   customIcons: [],
+            // },
+            zoom: {
+              enabled: true,
+              type: 'xy',
+              autoScaleYaxis: true,
+              // zoomedArea: {
+              //   fill: {
+              //     color: '#90CAF9',
+              //     opacity: 0.4,
+              //   },
+              //   stroke: {
+              //     color: '#0D47A1',
+              //     opacity: 0.4,
+              //     width: 1,
+              //   },
+              // },
+            },
+          },
         },
         xaxis: {
           categories: [],
         },
         plotOptions: {
           bar: {
-            barHeight: '100%',
+            barHeight: '80%',
             distributed: true,
-            dataLabels: {
-              position: 'bottom',
-              enabled: false,
-            },
+            borderRadius: 4,
           },
+        },
+        dataLabels: {
+          textAnchor: 'start',
+          enabled: true,
         },
         legend: {
           position: 'right',
@@ -112,6 +149,19 @@ export default {
             },
           },
         ],
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: true,
+          },
+          y: {
+            title: {
+              formatter: function() {
+                return '';
+              },
+            },
+          },
+        },
       },
       series: [
         {
