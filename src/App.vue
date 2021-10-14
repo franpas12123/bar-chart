@@ -9,21 +9,29 @@
           src="@/assets/site_logo.png"
           transition="scale-transition"
           width="40"
+          @click="$router.push('chartv1')"
         />
-        <strong>Black Business Alliance</strong>
+        <strong v-if="!isMobile()">Black Business Alliance</strong>
       </div>
       <v-spacer></v-spacer>
-      <v-btn @click="$router.push('chartv1')" target="_blank" text>
+      <v-btn @click="$router.push({ name: 'chartv1' })" target="_blank" text>
         <v-icon>mdi-poll</v-icon>
-        <span class="ml-2">V1 Chart</span>
+        <span class="ml-2">V1 <span v-if="!isMobile()">Chart</span></span>
       </v-btn>
-      <v-btn @click="$router.push('chartv2')" target="_blank" text>
+      <v-btn @click="$router.push({ name: 'chartv2' })" target="_blank" text>
         <v-icon>mdi-poll</v-icon>
-        <span class="ml-2">V2 Chart</span>
+        <span class="ml-2">V2 <span v-if="!isMobile()">Chart</span></span>
       </v-btn>
     </v-app-bar>
     <v-main class="app">
-      <router-view></router-view>
+      <v-container fill-height fluid>
+        <v-row justify="center">
+          <v-col cols="12" md="10">
+            <Table class="mt-12"></Table>
+            <router-view></router-view>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -31,6 +39,7 @@
 export default {
   name: 'App',
   components: {
+    Table: () => import('@/components/Table.vue'),
   },
   data: () => ({
     items: [
