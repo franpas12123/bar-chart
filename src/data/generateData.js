@@ -9,9 +9,9 @@ function createCompanyName() {
   return faker.name.findName();
 }
 
-function randomTimestamp(start, end) {
-  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
+// function randomTimestamp(start, end) {
+//   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+// }
 
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
