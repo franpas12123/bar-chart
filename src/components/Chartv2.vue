@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: 'Chart',
+  name: 'Chartv2',
   props: {
     msg: String,
   },
