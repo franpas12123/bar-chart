@@ -32,9 +32,10 @@ export default {
   },
   async created() {
     const baseURL = process.env.VUE_APP_NETLIFY_URL;
-    const randomNum = Math.floor(Math.random() * (2 - 0) + 0);
+    const randomNum = Math.floor(Math.random() * (3 - 0) + 0);
     let res;
-    if (!randomNum) {
+    console.log('num: ', randomNum);
+    if (randomNum == 0) {
       res = await axios.get(`${baseURL}/technicalAssistanceChartData.json`);
     } else {
       res = await axios.get(`${baseURL}/technicalAssistanceChartData${randomNum}.json`);
