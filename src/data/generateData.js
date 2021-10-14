@@ -55,7 +55,7 @@ const numberOfData = 100000;
 
 const specialists = createSpecialists(20);
 
-for (let index = 0; index < numberOfData; index++) {
+// for (let index = 0; index < numberOfData; index++) {
   /*
     [
       {
@@ -76,16 +76,17 @@ for (let index = 0; index < numberOfData; index++) {
   //   createdAt: randomDOB(2022, 2022),
   // };
 
-  const technicalAssistanceChart = {
-    businessPlan: randomNum(1000, 100000),
-    marketingPlan: randomNum(1000, 100000),
-    proFormaFinancials: randomNum(1000, 100000),
-    preUnderwriting: randomNum(1000, 100000),
-  };
-
   // json.push(user);
-  json.push(technicalAssistanceChart);
-}
+// }
+
+const technicalAssistanceChart = {
+  businessPlan: randomNum(1000, 100000),
+  marketingPlan: randomNum(1000, 100000),
+  proFormaFinancials: randomNum(1000, 100000),
+  preUnderwriting: randomNum(1000, 100000),
+};
+
+json.push(technicalAssistanceChart);
 
 // convert JSON object to string
 // const data = JSON.stringify(json, null, 4); // pretty version
