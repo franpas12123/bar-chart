@@ -22,21 +22,26 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Chart',
   props: {
     msg: String,
   },
   created() {
+    const baseURL = process.ENV.VUE_APP_NETLIFY_URL;
+    // axios.get()
+    console.log(baseURL);
     this.categories.forEach((category) => {
-      const count = this.getRndInteger(30, 100)
+      const count = this.getRndInteger(30, 100);
       const item = {
         serviceType: category,
-        count
-      }
+        count,
+      };
       this.series[0].data.push(count);
       this.items.push(item);
-    })
+    });
     this.options.xaxis.categories = this.categories;
   },
   data() {
