@@ -53,10 +53,10 @@ const json = [];
 // Create data
 const numberOfData = 100000;
 
-const specialists = createSpecialists(20);
+// const specialists = createSpecialists(20);
 
-// for (let index = 0; index < numberOfData; index++) {
-/*
+for (let index = 0; index < numberOfData; index++) {
+  /*
     [
       {
         "id": 0,
@@ -66,30 +66,42 @@ const specialists = createSpecialists(20);
       }
     ]
   */
-// create a JSON object
-// const user = {
-//   id: index,
-//   name: createRandomName(),
-//   // companyName: createCompanyName(),
-//   specialist: specialists[randomNum(0, specialists.length)],
-//   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
-//   createdAt: randomDOB(2022, 2022),
-// };
+  // create a JSON object
+  // const user = {
+  //   id: index,
+  //   name: createRandomName(),
+  //   // companyName: createCompanyName(),
+  //   specialist: specialists[randomNum(0, specialists.length)],
+  //   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
+  //   createdAt: randomDOB(2022, 2022),
+  // };
 
-// json.push(user);
-// }
+  // json.push(user);
 
-json.push({ name: 'Business Plan', value: randomNum(30000, 100000) });
-json.push({ name: 'Marketing Plan', value: randomNum(30000, 100000) });
-json.push({ name: 'Pro-forma Financials', value: randomNum(30000, 100000) });
-json.push({ name: 'Pre-underwriting', value: randomNum(30000, 100000) });
+  const data = {
+    businessPlan: { name: 'Business Plan', value: randomNum(3000, 10000) },
+    marketingPlan: { name: 'Marketing Plan', value: randomNum(3000, 10000) },
+    proFormaFinancials: { name: 'Pro-forma Financials', value: randomNum(3000, 10000) },
+    preUnderwriting: { name: 'Pre-underwriting', value: randomNum(3000, 10000) },
+    createdAt: randomDOB(2020, 2022),
+  };
+
+  json.push(data);
+}
+
+// sort data
+json.sort(function (a, b) {
+  return new Date(b.createdAt) - new Date(a.createdAt);
+});
+
+json.forEach(data => console.log(data.createdAt))
 
 // convert JSON object to string
 // const data = JSON.stringify(json, null, 4); // pretty version
 const data = JSON.stringify(json);
 
 // write JSON string to a file
-const destinationFile = '../../public/technicalAssistanceChartData1.json';
+const destinationFile = '../../public/technicalAssistanceChartData.json';
 // const destinationFile = 'contacts.json'
 fs.writeFile(destinationFile, data, (err) => {
   if (err) {
