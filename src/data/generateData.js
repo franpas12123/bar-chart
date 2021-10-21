@@ -51,12 +51,12 @@ function randomDOB(min, max) {
 const json = [];
 
 // Create data
-const numberOfData = 100000;
+// const numberOfData = 1000;
 
 // const specialists = createSpecialists(20);
 
-for (let index = 0; index < numberOfData; index++) {
-  /*
+// for (let index = 0; index < numberOfData; index++) {
+/*
     [
       {
         "id": 0,
@@ -66,31 +66,39 @@ for (let index = 0; index < numberOfData; index++) {
       }
     ]
   */
-  // create a JSON object
-  // const user = {
-  //   id: index,
-  //   name: createRandomName(),
-  //   // companyName: createCompanyName(),
-  //   specialist: specialists[randomNum(0, specialists.length)],
-  //   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
-  //   createdAt: randomDOB(2022, 2022),
-  // };
+// create a JSON object
+// const user = {
+//   id: index,
+//   name: createRandomName(),
+//   // companyName: createCompanyName(),
+//   specialist: specialists[randomNum(0, specialists.length)],
+//   // createdAt: randomTimestamp(new Date(2020, 0, 1), new Date()),
+//   createdAt: randomDOB(2022, 2022),
+// };
 
-  // json.push(user);
+// json.push(user);
+// }
 
-  const data = {
-    businessPlan: { name: 'Business Plan', value: randomNum(3000, 10000) },
-    marketingPlan: { name: 'Marketing Plan', value: randomNum(3000, 10000) },
-    proFormaFinancials: { name: 'Pro-forma Financials', value: randomNum(3000, 10000) },
-    preUnderwriting: { name: 'Pre-underwriting', value: randomNum(3000, 10000) },
-    createdAt: randomDOB(2020, 2022),
-  };
-
-  json.push(data);
+for (let year = 2000; year <= 2021; year++) {
+  for (let month = 1; month <= 12; month++) {
+    for (let day = 1; day <= 28; day++) {
+      const data = {
+        businessPlan: { name: 'Business Plan', value: randomNum(3000, 10000) },
+        marketingPlan: { name: 'Marketing Plan', value: randomNum(3000, 10000) },
+        proFormaFinancials: {
+          name: 'Pro-forma Financials',
+          value: randomNum(3000, 10000),
+        },
+        preUnderwriting: { name: 'Pre-underwriting', value: randomNum(3000, 10000) },
+        createdAt: `${year}-${month}-${day}`,
+      };
+      json.push(data);
+    }
+  }
 }
 
 // sort data
-json.sort(function (a, b) {
+json.sort(function(a, b) {
   return new Date(b.createdAt) - new Date(a.createdAt);
 });
 
@@ -99,7 +107,7 @@ json.sort(function (a, b) {
 const data = JSON.stringify(json);
 
 // write JSON string to a file
-const destinationFile = '../../public/technicalAssistanceChartData.json';
+const destinationFile = 'public/technicalAssistanceChartData.json';
 // const destinationFile = 'contacts.json'
 fs.writeFile(destinationFile, data, (err) => {
   if (err) {
