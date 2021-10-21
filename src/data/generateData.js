@@ -94,8 +94,6 @@ json.sort(function (a, b) {
   return new Date(b.createdAt) - new Date(a.createdAt);
 });
 
-json.forEach(data => console.log(data.createdAt))
-
 // convert JSON object to string
 // const data = JSON.stringify(json, null, 4); // pretty version
 const data = JSON.stringify(json);
