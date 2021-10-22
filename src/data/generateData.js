@@ -83,13 +83,13 @@ for (let year = 2000; year <= 2021; year++) {
   for (let month = 1; month <= 12; month++) {
     for (let day = 1; day <= 28; day++) {
       const data = {
-        businessPlan: { name: 'Business Plan', value: randomNum(3000, 10000) },
-        marketingPlan: { name: 'Marketing Plan', value: randomNum(3000, 10000) },
+        businessPlan: { name: 'Business Plan', value: randomNum(100, 1000) },
+        marketingPlan: { name: 'Marketing Plan', value: randomNum(100, 1000) },
         proFormaFinancials: {
           name: 'Pro-forma Financials',
-          value: randomNum(3000, 10000),
+          value: randomNum(100, 1000),
         },
-        preUnderwriting: { name: 'Pre-underwriting', value: randomNum(3000, 10000) },
+        preUnderwriting: { name: 'Pre-underwriting', value: randomNum(100, 1000) },
         createdAt: `${year}-${month}-${day}`,
       };
       json.push(data);
