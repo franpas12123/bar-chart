@@ -90,7 +90,11 @@ for (let year = 2000; year <= 2021; year++) {
           value: randomNum(10, 500),
         },
         preUnderwriting: { name: 'Pre-underwriting', value: randomNum(10, 1000) },
-        createdAt: `${year}-${month}-${day}`,
+        createdAt: new Date(
+          new Date(`${year}-${month}-${day}`) - new Date().getTimezoneOffset() * 60000
+        )
+          .toISOString()
+          .substr(0, 10),
       };
       json.push(data);
     }
