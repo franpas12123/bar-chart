@@ -83,13 +83,44 @@ for (let year = 2000; year <= 2021; year++) {
   for (let month = 1; month <= 12; month++) {
     for (let day = 1; day <= 28; day++) {
       const data = {
-        businessPlan: { name: 'Business Plan', value: randomNum(10, 700) },
-        marketingPlan: { name: 'Marketing Plan', value: randomNum(10, 800) },
+        // technical assistance data
+        businessPlan: {
+          name: 'Business Plan',
+          value: randomNum(10, 700),
+        },
+        marketingPlan: {
+          name: 'Marketing Plan',
+          value: randomNum(10, 800),
+        },
         proFormaFinancials: {
           name: 'Pro-forma Financials',
           value: randomNum(10, 500),
         },
-        preUnderwriting: { name: 'Pre-underwriting', value: randomNum(10, 1000) },
+        preUnderwriting: {
+          name: 'Pre-underwriting',
+          value: randomNum(10, 1000),
+        },
+        // reports data
+        contacts: {
+          name: 'Contacts',
+          value: randomNum(10, 1000),
+        },
+        newBusinesses: {
+          name: 'New Businesses',
+          value: randomNum(10, 500),
+        },
+        businessContacted: {
+          name: 'Businesses Contacted',
+          value: randomNum(10, 800),
+        },
+        externalReferrals: {
+          name: 'External Referrals',
+          value: randomNum(10, 1000),
+        },
+        internalReferrals: {
+          name: 'Internal Referrals',
+          value: randomNum(10, 700),
+        },
         createdAt: new Date(
           new Date(`${year}-${month}-${day}`) - new Date().getTimezoneOffset() * 60000
         )
